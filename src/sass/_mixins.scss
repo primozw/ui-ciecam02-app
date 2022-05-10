@@ -1,0 +1,291 @@
+  
+
+@mixin hidden($break: $menu-break, $when: 'before'){
+  @if $when == 'before' { $when: 'max-width'; $break: $break - rem(1px);}
+  @if $when == 'after' { $when: 'min-width'  }
+
+  @include breakpoint($when $break){
+    display: none !important;
+  }
+}
+
+@mixin full-area($min-width, $min-height){
+  @include breakpoint((min-width $min-width) (orientation landscape)){
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: $min-height;
+  }
+}
+
+/* -------------------------------- 
+Ripple effect
+-------------------------------- */
+@mixin ripple(){
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle at right, $medium-gray 2%, $white 80%);
+      background-repeat: no-repeat;
+      background-position: 0 50%;
+      transform: scale(3, 3);
+      opacity: 0;
+      transition: transform 3.5s, opacity 4s;
+    }
+
+    &:active:after {
+      transform: scale(0, 0);
+      opacity: .2;
+      transition: 0s;
+    }
+}
+
+/* -------------------------------- 
+full size background image
+-------------------------------- */
+
+@mixin fullBackImage (
+	$image,
+	$grDir: to bottom,
+	$opStart: 0,
+	$opEnd: 0,
+	$bgPos: center center
+	) {
+	 
+	 background: linear-gradient(
+      $grDir,
+      rgba(0,0,0, $opStart),
+      rgba(0,0,0, $opEnd)
+	 ), url($image);
+
+	 background-repeat: no-repeat;
+	 background-position: $bgPos;
+	 background-attachment: fixed;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+}
+
+
+/* -------------------------------- 
+clearfix method
+use @include clearfix inside parent
+-------------------------------- */
+
+@mixin clearfix () {
+	&:before,
+	&:after {
+	    content: "";
+	    display: table;
+	} 
+	&:after {
+	    clear: both;
+	}
+}
+
+
+/* -------------------------------- 
+
+Vertical alignment
+Use: @include vertical-align();
+
+-------------------------------- */
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+/* -------------------------------- 
+
+beveled-corners
+use @include beveled-corners(#58a, 15px, 5px);
+
+-------------------------------- */
+@mixin beveled-corners($bg, $tl:0, $tr:$tl, $br:$tl, $bl:$tr) {
+    background: $bg;
+    background:
+        linear-gradient(135deg, transparent $tl, $bg 0)
+            top left,
+        linear-gradient(225deg, transparent $tr, $bg 0)
+            top right,
+        linear-gradient(-45deg, transparent $br, $bg 0)
+            bottom right,
+        linear-gradient(45deg, transparent $bl, $bg 0)
+            bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+
+
+/* 	
+ * scoop-corners
+ * use @include beveled-corners(#58a, 15px, 5px);
+*/
+
+@mixin scoop-corners($bg, $tl:0, $tr:$tl, $br:$tl, $bl:$tr) {
+    background: $bg;
+    background:
+        		radial-gradient(circle at top left, transparent $tl, $bg 0) top left,
+	            radial-gradient(circle at top right, transparent $tr, $bg 0) top right,
+	            radial-gradient(circle at bottom right, transparent $br, $bg 0) bottom right,
+	            radial-gradient(circle at bottom left, transparent $bl, $bg 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+
+/*
+ * Folded Corners
+ * Usage: @include folded-corner(#58a, 1.5em, 25deg);
+ */
+
+
+
+
+@mixin folded-corner($background, $size, $angle: 30deg) {
+	
+position: relative;
+background: $background; /* Fallback */
+background: linear-gradient($angle - 180deg, transparent $size, $background 0);
+border-radius: .5em;
+
+$x: $size / sin($angle);
+$y: $size / cos($angle);
+
+&::before {
+	content: '';
+	position: absolute;
+	top: 0; right: 0;
+	background: linear-gradient(to left bottom, transparent 50%, rgba(0,0,0,.2) 0, rgba(0,0,0,.4)) 100% 0 no-repeat;
+	width: $y;
+	height: $x;
+	transform: translateY($y - $x) rotate(2*$angle - 90deg);
+  transform-origin: bottom right;
+	border-bottom-left-radius: inherit;
+	box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);
+}
+
+}
+
+
+/* -------------------------------- 
+
+Remove default list syles
+
+-------------------------------- */
+
+@mixin nav-list($float: left){
+	list-style: none;
+	margin:0;
+	padding: 0;
+
+	li {
+		margin: 0;
+		padding: 0;
+		float: $float;
+	}
+}
+
+/* -------------------------------- 
+
+Remove default button syles
+
+-------------------------------- */
+@mixin reset_btn() {
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	outline: none;
+	cursor: pointer;
+}
+
+
+/* -------------------------------- 
+
+Force Hardware Acceleration in WebKit
+
+-------------------------------- */
+
+@mixin hardware_bust() {
+	 /* Force Hardware Acceleration in WebKit */
+	@include transform(translateZ(0));
+	will-change: transform;
+}
+
+
+/* -------------------------------- 
+PX 2 EM
+-------------------------------- */
+
+@function em($target, $context: $base-font-size) {
+   @if $target == 0 { @return 0 }
+   @return $target / $context + 0em;
+}
+
+/* -------------------------------- 
+PX 2 REM
+-------------------------------- */
+
+@function rem($target, $context: $base-font-size) {
+   @if $target == 0 { @return 0 }
+   @return $target / $context + 0rem;
+}
+
+
+/* -------------------------------- 
+LETTER SPACING
+-------------------------------- */
+@mixin ps-letter-space($ps-value) {
+	letter-spacing:  $ps-value/1000;
+}
+
+
+/* -------------------------------- 
+IMAGE REPLACEMENT
+-------------------------------- */
+
+@mixin img-replacement() {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/* -------------------------------- 
+Grayscale filter
+-------------------------------- */
+@mixin grayscale() {
+    filter: url("data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;filter id=\'grayscale\'&gt;&lt;feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+
+/* -------------------------------- 
+HYPHENS
+-------------------------------- */
+@mixin hyphens() {
+	-webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    word-break:break-word;
+    hyphens: auto;
+}

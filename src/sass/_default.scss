@@ -1,0 +1,151 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+  -ms-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin:0;
+}
+
+:focus, :active {
+  outline: 0;
+}
+
+blockquote, q {
+  quotes: "" "";
+
+  &:before,
+  &:after {
+    content: "";
+  }
+}
+
+
+ul ul li {
+  font-size: 1em;
+}
+
+/* Buttons */
+
+.btn {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn--search {
+  font-size: 1.5em;
+}
+
+.btn--hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+
+/* Reset Search Input */
+
+.search__input {
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.search__input:focus {
+  outline: none;
+}
+
+
+/* Links */
+
+a,
+.btn {
+  text-decoration: none;
+  outline: none;
+}
+
+
+
+
+/* -------------------------------- 
+Better Font Rendering
+-------------------------------- */
+p, figcaption, li, a, label, input, small, i, em, strong, span, button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+
+/* -------------------------------- 
+Reset Input Style
+-------------------------------- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background: $autofill !important;
+}
+
+input[type="search"]::-ms-clear {
+  /* removes close icon - IE */
+    display: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+
+/* --------------------------------------------------------------
+Reset `button` and button-style `input` default styles
+------------------------------------------------------------------ */
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-appearance: none; /* for input */
+    -webkit-user-select: none; /* for button */
+       -moz-user-select: none;
+        -ms-user-select: none;
+}
+
+
+/**
+ * disable mobile browser click/touch/tap feedback box
+*/
+
+* { 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+}

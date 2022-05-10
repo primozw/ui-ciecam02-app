@@ -1,0 +1,27 @@
+.main-content {
+  p {
+    margin:0;
+    transition: all 0.3s;
+  }
+  .initContent, .targetContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+    //flex-grow:0;
+  }
+  .targetContent {
+    //justify-content: flex-start;
+  }
+}
+
+.contentWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gui-btn {
+  box-shadow: none !important;
+}

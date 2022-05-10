@@ -1,0 +1,62 @@
+// Colors
+$black: #212121;
+$dark-gray: #808080;
+$medium-gray: #D5D5D5;
+$light-gray: #F2F2F2; 
+$white: #fff;
+
+$error    :#dc5151;
+$success  :#349657;
+
+$selected-background: $black;
+$selected-text: $white;
+$autofill: $light-gray; 
+
+// Spaces
+$space-after: 1.5em;
+
+// Typography
+$primary-font     : 'aristejSans', sans-serif;
+$secondary-font   : 'aristejSlab', serif;
+$line-ratio       : 1.6;
+$base-font-size   : 16px;
+
+$light      : 300;
+$normal     : 500;
+$bold       : 700;
+$extra-bold : 900;
+
+
+// Shadows - use: @include single-text-shadow;
+$default-text-shadow-color    : $light-gray;
+$default-text-shadow-h-offset : 1px;
+$default-text-shadow-v-offset : 1px;
+$default-text-shadow-blur     : 2px;
+$default-text-shadow-spread   : true;
+
+
+//Layout
+$small    : (370/16) * 1rem; 
+$smallx   : (510/16) * 1rem;
+$medium   : (660/16) * 1rem; 
+$mediumx  : (768/16) * 1rem; 
+$large    : (1024/16) * 1rem;
+$largex   : (1380/16) * 1rem; 
+$huge     : (1850/16) * 1rem;                         
+
+$max-width: 1280px;
+$width: 90%;
+$menu-break: $large;
+
+// Owl Carousel
+$color-base:      $medium-gray;
+$color-white:     $white;
+$color-gray:      $light-gray;
+
+//dots
+$dot-width:       1rem;
+$dot-height:      1rem;
+$dot-rounded:     50%;
+$dot-margin:      5px 7px !default;
+$dot-background:    $color-gray !default;
+$dot-background-active: $color-base !default;

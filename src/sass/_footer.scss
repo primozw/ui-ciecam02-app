@@ -1,0 +1,15 @@
+.footer {
+  background-color: $white;
+
+  .footer--mobile {
+    height: 5rem;
+    button {
+      padding:0.5em;
+    }
+  }
+
+  .footer--mobile__label {
+    font-size: 0.7rem;
+    margin-top: 0.5em;
+  }
+}

@@ -1,0 +1,103 @@
+.menu {
+
+  .tabs {
+    justify-content:space-between;
+
+    .tab {
+      flex-grow: 1;
+      min-width: auto;
+    }
+  }
+
+  
+
+  .labelContainer {
+    padding: 0;
+  }
+
+  .settings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .btn--input {
+      margin-bottom: 1.5rem;
+      width: 45%;
+    }
+  }
+
+  .settings, .preview-mode {
+    padding: 2rem 1rem;
+
+    .btn--radio {
+      margin-left: 0;
+
+      span:nth-child(1){
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    // TEXT MODE
+    .settings__font-family {
+      display: flex;
+      margin: 0.5rem 0;
+    }
+    .settings__input, .settings__font-family{
+      div:before {
+        height: 0;
+      }
+    }
+    
+    .settings__switch-mode__btns {
+      flex-direction: row;
+      margin-bottom: 1.5rem;
+    }
+    .settings__font {
+      display: flex;
+      justify-content: space-between;
+    }
+    .settings__font-variant {
+      display: inline-flex;
+      flex-flow: column nowrap;
+      &>div {
+        flex-direction: row;
+      }
+      p {
+        margin:0;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 0.75em;
+        text-align: right;
+      }
+    }
+
+    .settings__font-size{
+      input{
+        width: 4.5em;
+      }
+    }
+
+    legend {
+      font-size: 0.75rem;
+    }
+
+    // ICON MODE
+    .settings__icons {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    .settings__icons__list {
+      width: 100%;
+      height: 50vh;
+      overflow: scroll;
+      padding: 1rem 0;
+
+      button {
+        padding: 0.5em;
+        color: $dark-gray;
+      }
+    }
+  }
+}
+
+

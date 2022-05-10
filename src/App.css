@@ -1,0 +1,484 @@
+/* -------------------------------- 
+Ripple effect
+-------------------------------- */
+/* -------------------------------- 
+full size background image
+-------------------------------- */
+/* -------------------------------- 
+clearfix method
+use @include clearfix inside parent
+-------------------------------- */
+/* -------------------------------- 
+
+Vertical alignment
+Use: @include vertical-align();
+
+-------------------------------- */
+/* -------------------------------- 
+
+beveled-corners
+use @include beveled-corners(#58a, 15px, 5px);
+
+-------------------------------- */
+/* 	
+ * scoop-corners
+ * use @include beveled-corners(#58a, 15px, 5px);
+*/
+/*
+ * Folded Corners
+ * Usage: @include folded-corner(#58a, 1.5em, 25deg);
+ */
+/* -------------------------------- 
+
+Remove default list syles
+
+-------------------------------- */
+/* -------------------------------- 
+
+Remove default button syles
+
+-------------------------------- */
+/* -------------------------------- 
+
+Force Hardware Acceleration in WebKit
+
+-------------------------------- */
+/* -------------------------------- 
+PX 2 EM
+-------------------------------- */
+/* -------------------------------- 
+PX 2 REM
+-------------------------------- */
+/* -------------------------------- 
+LETTER SPACING
+-------------------------------- */
+/* -------------------------------- 
+IMAGE REPLACEMENT
+-------------------------------- */
+/* -------------------------------- 
+Grayscale filter
+-------------------------------- */
+/* -------------------------------- 
+HYPHENS
+-------------------------------- */
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+html, body {
+  -webkit-text-size-adjust: 100%;
+  /* Prevent font scaling in landscape while allowing user zoom */
+  -ms-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0; }
+
+table {
+  width: 100%; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0; }
+
+:focus, :active {
+  outline: 0; }
+
+blockquote, q {
+  quotes: "" ""; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: ""; }
+
+ul ul li {
+  font-size: 1em; }
+
+/* Buttons */
+.btn {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background: none; }
+
+.btn:focus {
+  outline: none; }
+
+.btn--search {
+  font-size: 1.5em; }
+
+.btn--hidden {
+  pointer-events: none;
+  opacity: 0; }
+
+/* Reset Search Input */
+.search__input {
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  -webkit-appearance: none; }
+
+.search__input:focus {
+  outline: none; }
+
+/* Links */
+a,
+.btn {
+  text-decoration: none;
+  outline: none; }
+
+/* -------------------------------- 
+Better Font Rendering
+-------------------------------- */
+p, figcaption, li, a, label, input, small, i, em, strong, span, button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision; }
+
+/* -------------------------------- 
+Reset Input Style
+-------------------------------- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background: #F2F2F2 !important; }
+
+input[type="search"]::-ms-clear {
+  /* removes close icon - IE */
+  display: none; }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none; }
+
+/* --------------------------------------------------------------
+Reset `button` and button-style `input` default styles
+------------------------------------------------------------------ */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: none;
+  /* for input */
+  -webkit-user-select: none;
+  /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
+/**
+ * disable mobile browser click/touch/tap feedback box
+*/
+* {
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent; }
+
+/* -------------------------------- 
+Typography
+-------------------------------- */
+body {
+  font-family: 'Roboto', sans-serif; }
+
+.overlay {
+  background-color: transparent !important; }
+
+.modalContainer {
+  background-color: transparent !important;
+  overflow: visible !important; }
+
+.block-picker div:nth-child(3) {
+  display: none; }
+
+/* -------------------------------- 
+Style for selected color
+-------------------------------- */
+::selection {
+  background: #212121;
+  /* WebKit/Blink Browsers */
+  color: #fff; }
+
+::-moz-selection {
+  background: #212121;
+  /* Gecko Browsers */
+  color: #fff; }
+
+/* -------------------------------- 
+Line
+-------------------------------- */
+hr {
+  background-color: #F2F2F2;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em; }
+
+.pin-top {
+  position: relative; }
+
+.pin-bottom {
+  position: relative; }
+
+.pinned {
+  position: fixed !important;
+  bottom: initial !important; }
+
+body {
+  height: 100%;
+  width: 100%; }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+  position: relative; }
+
+.main-content {
+  flex-grow: 1;
+  position: relative; }
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center; }
+
+.container > div {
+  flex-grow: 1; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #fff;
+  padding: 0.5rem 1rem; }
+  .header .menu-icon svg {
+    width: 1.5em;
+    height: 1.5em; }
+  .header .switch p {
+    display: none; }
+  @media (min-width: 41.25rem) {
+    .header .switch {
+      display: flex;
+      flex-direction: row; }
+      .header .switch p {
+        display: block;
+        margin-right: 1rem; }
+      .header .switch .split {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        margin-left: 1rem; } }
+
+.header__main-nav {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap; }
+  .header__main-nav .btn {
+    margin-right: 1.5rem; }
+  .header__main-nav .iconChecked {
+    color: #212121; }
+  .header__main-nav .bar {
+    background-color: #212121 !important;
+    opacity: 0.65 !important; }
+  .header__main-nav .switch-label {
+    text-transform: uppercase; }
+  .header__main-nav p {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    color: #808080; }
+
+.header__main-nav__modes {
+  margin: 0 2rem; }
+  .header__main-nav__modes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; }
+    .header__main-nav__modes ul li button {
+      text-transform: uppercase; }
+
+.footer {
+  background-color: #fff; }
+  .footer .footer--mobile {
+    height: 5rem; }
+    .footer .footer--mobile button {
+      padding: 0.5em; }
+  .footer .footer--mobile__label {
+    font-size: 0.7rem;
+    margin-top: 0.5em; }
+
+.main-content p {
+  margin: 0;
+  transition: all 0.3s; }
+
+.main-content .initContent, .main-content .targetContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; }
+
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.gui-btn {
+  box-shadow: none !important; }
+
+.menu .menu__paper {
+  width: 340px; }
+  @media (min-width: 41.25rem) {
+    .menu .menu__paper {
+      width: 400px; } }
+
+.menu .tabs {
+  justify-content: space-between; }
+  .menu .tabs .tab {
+    flex-grow: 1;
+    min-width: auto; }
+
+.menu .labelContainer {
+  padding: 0; }
+
+.menu .settings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .menu .settings .btn--input {
+    margin-bottom: 1.5rem;
+    width: 45%; }
+
+.menu .settings, .menu .preview-mode {
+  padding: 2rem 1rem; }
+  .menu .settings .btn--radio, .menu .preview-mode .btn--radio {
+    margin-left: 0; }
+    .menu .settings .btn--radio span:nth-child(1), .menu .preview-mode .btn--radio span:nth-child(1) {
+      width: 30px;
+      height: 30px; }
+  .menu .settings .settings__font-family, .menu .preview-mode .settings__font-family {
+    display: flex;
+    margin: 0.5rem 0; }
+  .menu .settings .settings__input div:before, .menu .settings .settings__font-family div:before, .menu .preview-mode .settings__input div:before, .menu .preview-mode .settings__font-family div:before {
+    height: 0; }
+  .menu .settings .settings__switch-mode__btns, .menu .preview-mode .settings__switch-mode__btns {
+    flex-direction: row;
+    margin-bottom: 1.5rem; }
+  .menu .settings .settings__font, .menu .preview-mode .settings__font {
+    display: flex;
+    justify-content: space-between; }
+  .menu .settings .settings__font-variant, .menu .preview-mode .settings__font-variant {
+    display: inline-flex;
+    flex-flow: column nowrap; }
+    .menu .settings .settings__font-variant > div, .menu .preview-mode .settings__font-variant > div {
+      flex-direction: row; }
+    .menu .settings .settings__font-variant p, .menu .preview-mode .settings__font-variant p {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.54);
+      font-size: 0.75em;
+      text-align: right; }
+  .menu .settings .settings__font-size input, .menu .preview-mode .settings__font-size input {
+    width: 4.5em; }
+  .menu .settings legend, .menu .preview-mode legend {
+    font-size: 0.75rem; }
+  .menu .settings .settings__icons, .menu .preview-mode .settings__icons {
+    display: flex;
+    flex-flow: column nowrap; }
+  .menu .settings .settings__icons__list, .menu .preview-mode .settings__icons__list {
+    width: 100%;
+    height: 50vh;
+    overflow: scroll;
+    padding: 1rem 0; }
+    .menu .settings .settings__icons__list button, .menu .preview-mode .settings__icons__list button {
+      padding: 0.5em;
+      color: #808080; }
+
+.btn {
+  display: flex;
+  align-items: center;
+  line-height: 2rem;
+  padding-bottom: 0.15rem;
+  color: #808080;
+  transition: all 0.3s; }
+  .btn:hover {
+    color: #212121 !important; }
+  .btn span {
+    display: block;
+    line-height: 2rem;
+    margin-left: 0.3em; }
+
+.btn--add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem; }
+  .btn--add p {
+    margin: 0;
+    margin-left: 0.5em; }
+  .btn--add button {
+    box-shadow: none; }
+
+.palette {
+  width: 90%;
+  margin: 0 auto; }
+
+.schemes {
+  margin-top: 1.5rem; }
+
+.scheme {
+  margin-bottom: 1.5rem; }
+
+.scheme__colors {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 1rem; }
+
+.patch {
+  width: 25%;
+  height: 3rem;
+  border: solid 1px rgba(0, 0, 0, 0.1); }
+
+.scheme__buttons {
+  text-align: right; }
+
+.icon--text {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1.5em;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.8rem;
+  cursor: pointer; }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga'; }

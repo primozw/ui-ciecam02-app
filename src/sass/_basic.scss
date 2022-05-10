@@ -1,0 +1,81 @@
+/* -------------------------------- 
+Typography
+-------------------------------- */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.overlay {
+  background-color: transparent !important;
+}
+
+.modalContainer {
+  background-color: transparent !important;
+  overflow: visible !important;
+}
+.block-picker div:nth-child(3){
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+/* -------------------------------- 
+Style for selected color
+-------------------------------- */
+::selection {
+  background: $selected-background; /* WebKit/Blink Browsers */
+  color: $selected-text;
+}
+::-moz-selection {
+  background: $selected-background; /* Gecko Browsers */
+  color: $selected-text;
+}
+
+
+/* -------------------------------- 
+Line
+-------------------------------- */
+hr {
+  background-color: $light-gray;
+  border: 0;
+  height: 1px;
+  margin-bottom: $space-after;
+}
+
+// Class for when element is above threshold
+  .pin-top {
+    position: relative;
+  }
+
+  // Class for when element is below threshold
+  .pin-bottom {
+    position: relative;
+  }
+
+  // Class for when element is pinned
+  .pinned {
+    position: fixed !important;
+    bottom: initial !important;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
